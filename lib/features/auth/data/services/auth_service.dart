@@ -20,10 +20,11 @@ class AuthService implements IAuthService {
           },
         ),
       );
-      if (response.statusCode != 200) throw Exception();
-      return response.data['accessToken'];
+      if (response.statusCode == 200) {
+        return response.data['accessToken'];
+      }
+      throw Exception();
     } on DioException catch (e) {
-      print(e);
       rethrow;
     } catch (e) {
       rethrow;

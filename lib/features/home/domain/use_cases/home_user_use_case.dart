@@ -15,4 +15,14 @@ class HomeUserUseCase implements IHomeUserUseCase {
       return null;
     }
   }
+
+  @override
+  Future<List<BasicUser>?> getAllUsers() async {
+    try {
+      final result = await homeUserRepository.getUsers();
+      return result;
+    } catch (e) {
+      return null;
+    }
+  }
 }

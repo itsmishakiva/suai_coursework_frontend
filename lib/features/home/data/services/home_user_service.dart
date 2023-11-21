@@ -16,4 +16,15 @@ class HomeUserService implements IHomeUserService {
       rethrow;
     }
   }
+
+  @override
+  Future<List<BasicUserDto>> getAllUsers() async {
+    try {
+      final response = await _dio.get('/users');
+      List list = response.data;
+      return list.map((e) => BasicUserDto.fromJson(e)).toList();
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

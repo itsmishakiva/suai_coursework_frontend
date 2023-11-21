@@ -28,7 +28,7 @@ class TaskMapper implements ITaskMapper {
   @override
   Task mapToDto(TaskDto taskDto) {
     Task task = Task(
-      id: taskDto.id,
+      id: taskDto.id!,
       title: taskDto.title,
       status: taskDto.statusId,
       description: taskDto.description,

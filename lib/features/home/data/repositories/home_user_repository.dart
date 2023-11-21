@@ -16,4 +16,11 @@ class HomeUserRepository implements IHomeUserRepository {
     final user = mapper.mapToDto(userDto);
     return user;
   }
+
+  @override
+  Future<List<BasicUser>> getUsers() async {
+    final usersDto = await service.getAllUsers();
+    final users = usersDto.map((e) => mapper.mapToDto(e)).toList();
+    return users;
+  }
 }

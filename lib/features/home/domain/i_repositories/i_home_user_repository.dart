@@ -2,4 +2,6 @@ import 'package:suai_coursework_frontend/features/home/domain/entities/basic_use
 
 abstract interface class IHomeUserRepository {
   Future<BasicUser> getMyselfUser();
+
+  Future<List<BasicUser>> getUsers();
 }

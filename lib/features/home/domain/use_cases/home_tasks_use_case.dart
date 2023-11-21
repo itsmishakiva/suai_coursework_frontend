@@ -12,7 +12,6 @@ class HomeTasksUseCase implements IHomeTasksUseCase {
       final result = await homeTasksRepository.getTasks();
       return result;
     } catch (e) {
-      print(e);
       return null;
     }
   }

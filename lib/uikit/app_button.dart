@@ -8,12 +8,14 @@ class AppButton extends StatelessWidget {
     required this.icon,
     required this.onTap,
     this.borderColor,
+    this.style,
   });
 
   final String text;
   final Widget icon;
   final Color? borderColor;
   final void Function() onTap;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,7 @@ class AppButton extends StatelessWidget {
                 children: [
                   Text(
                     text,
-                    style: context.textStyles.onButton,
+                    style: style ?? context.textStyles.onButton,
                   ),
                   const Spacer(),
                   icon,

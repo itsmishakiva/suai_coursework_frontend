@@ -7,11 +7,13 @@ class AppTextButton extends StatelessWidget {
     required this.text,
     required this.onTap,
     this.loading = false,
+    this.color,
   });
 
   final String text;
   final void Function() onTap;
   final bool loading;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class AppTextButton extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(12.0),
         child: Material(
-          color: context.colors.button,
+          color: color ?? context.colors.button,
           child: InkWell(
             onTap: loading ? null : onTap,
             child: Center(

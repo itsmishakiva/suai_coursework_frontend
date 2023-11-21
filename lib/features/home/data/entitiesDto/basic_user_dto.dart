@@ -34,4 +34,17 @@ class BasicUserDto {
       email: json['email'],
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'username': username,
+      'avatarColor': avatarColor,
+      'avatarPath': avatarPath,
+      'name' : name,
+      'surname' : surname,
+      'statusInfo': statusInfo,
+      'description' : description,
+      'email' : email,
+    };
+  }
 }

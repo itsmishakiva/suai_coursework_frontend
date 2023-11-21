@@ -1,33 +1,33 @@
 import 'package:suai_coursework_frontend/features/home/data/entitiesDto/basic_user_dto.dart';
 
-class TaskDto {
-  int id;
+class UiTaskDto {
+  int? id;
   String title;
   int statusId;
   String? description;
   int? typeId;
   int? groupId;
-  BasicUserDto? userDto;
+  int? userId;
 
-  TaskDto({
-    required this.id,
+  UiTaskDto({
+    this.id,
     required this.title,
     required this.statusId,
     this.description,
     this.typeId,
     this.groupId,
-    this.userDto,
+    this.userId,
   });
 
-  factory TaskDto.fromJson(Map<String, dynamic> json) {
-    return TaskDto(
+  factory UiTaskDto.fromJson(Map<String, dynamic> json) {
+    return UiTaskDto(
       id: json['id'],
       title: json['title'],
       statusId: json['statusId'],
       description: json['description'],
       typeId: json['typeId'],
       groupId: json['groupId'],
-      userDto: json['user'] == null ? null : BasicUserDto.fromJson(json['user']),
+      userId: json['userId'],
     );
   }
 
@@ -38,27 +38,27 @@ class TaskDto {
       'description': description,
       'typeId' : typeId,
       'groupId' : groupId,
-      'user' : userDto?.toJson(),
+      'userId' : userId,
     };
   }
 
-  TaskDto copyWith({
+  UiTaskDto copyWith({
     int? id,
     String? title,
     int? statusId,
     String? description,
     int? typeId,
     int? groupId,
-    BasicUserDto? userDto,
+    int? userId,
   }) {
-    return TaskDto(
+    return UiTaskDto(
       id: id ?? this.id,
       title: title ?? this.title,
       statusId: statusId ?? this.statusId,
       description: description ?? this.description,
       typeId: typeId ?? this.typeId,
       groupId: groupId ?? this.groupId,
-      userDto: userDto ?? this.userDto,
+      userId: userId ?? this.userId,
     );
   }
 
